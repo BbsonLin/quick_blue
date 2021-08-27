@@ -7,7 +7,7 @@ import 'models.dart';
 
 export 'models.dart';
 
-export 'package:quick_blue_platform_interface/models.dart';
+// export 'package:quick_blue_platform_interface/models.dart';
 
 class QuickBlue {
   static Future<bool> isBluetoothAvailable() => QuickBluePlatform.instance.isBluetoothAvailable();
