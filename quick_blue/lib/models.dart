@@ -18,4 +18,7 @@ class BlueScanResult {
         'manufacturerData': manufacturerData,
         'rssi': rssi,
       };
+
+  @override
+  String toString() => toMap().toString();
 }
