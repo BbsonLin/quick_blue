@@ -131,6 +131,13 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
             },
           ),
           ElevatedButton(
+            child: Text('read'),
+            onPressed: () {
+              // var value = Uint8List.fromList(hex.decode(binaryCode.text));
+              QuickBlue.readValue(widget.deviceId, serviceUUID.text, characteristicUUID.text);
+            },
+          ),
+          ElevatedButton(
             child: Text('requestMtu'),
             onPressed: () async {
               var mtu = await QuickBlue.requestMtu(widget.deviceId, WOODEMI_MTU_WUART);

@@ -17,8 +17,7 @@ class QuickBlue {
   static void stopScan() => QuickBluePlatform.instance.stopScan();
 
   static Stream<BlueScanResult> get scanResultStream {
-    return QuickBluePlatform.instance.scanResultStream
-      .map((item) => BlueScanResult.fromMap(item));
+    return QuickBluePlatform.instance.scanResultStream.map((item) => BlueScanResult.fromMap(item));
   }
 
   static void connect(String deviceId) => QuickBluePlatform.instance.connect(deviceId);
@@ -29,23 +28,31 @@ class QuickBlue {
     QuickBluePlatform.instance.onConnectionChanged = onConnectionChanged;
   }
 
-  static void discoverServices(String deviceId) => QuickBluePlatform.instance.discoverServices(deviceId);
+  static void discoverServices(String deviceId) =>
+      QuickBluePlatform.instance.discoverServices(deviceId);
 
   static void setServiceHandler(OnServiceDiscovered onServiceDiscovered) {
     QuickBluePlatform.instance.onServiceDiscovered = onServiceDiscovered;
   }
 
-  static void setNotifiable(String deviceId, String service, String characteristic, BleInputProperty bleInputProperty) {
-    return QuickBluePlatform.instance.setNotifiable(deviceId, service, characteristic, bleInputProperty);
+  static void setNotifiable(
+      String deviceId, String service, String characteristic, BleInputProperty bleInputProperty) {
+    QuickBluePlatform.instance.setNotifiable(deviceId, service, characteristic, bleInputProperty);
   }
 
   static void setValueHandler(OnValueChanged onValueChanged) {
     QuickBluePlatform.instance.onValueChanged = onValueChanged;
   }
 
-  static void writeValue(String deviceId, String service, String characteristic, Uint8List value, BleOutputProperty bleOutputProperty) {
-    return QuickBluePlatform.instance.writeValue(deviceId, service, characteristic, value, bleOutputProperty);
+  static void readValue(String deviceId, String service, String characteristic) {
+    return QuickBluePlatform.instance.readValue(deviceId, service, characteristic);
   }
 
-  static Future<int> requestMtu(String deviceId, int expectedMtu) => QuickBluePlatform.instance.requestMtu(deviceId, expectedMtu);
+  static void writeValue(String deviceId, String service, String characteristic, Uint8List value,
+      BleOutputProperty bleOutputProperty) {
+    QuickBluePlatform.instance.writeValue(deviceId, service, characteristic, value, bleOutputProperty);
+  }
+
+  static Future<int> requestMtu(String deviceId, int expectedMtu) =>
+      QuickBluePlatform.instance.requestMtu(deviceId, expectedMtu);
 }
