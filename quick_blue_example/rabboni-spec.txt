@@ -1,0 +1,77 @@
+00001600-0000-1000-8000-00805f9b34fb
+NOTIFY_UUID = "00001601-0000-1000-8000-00805f9b34fb"
+BATTERY_UUID = "00002a19-0000-1000-8000-00805f9b34fb"
+READ_CONFIG_UUID = "00001705-0000-1000-8000-00805f9b34fb"
+SET_CONFIG_UUID = "0000fff6-0000-1000-8000-00805f9b34fb"
+SET_CONFIG_RES_UUID = "00001705-0000-1000-8000-00805f9b34fb"
+
+
+❯ poetry run python .\bleak_battery.py
+DEBUG:asyncio:Using selector: SelectSelector
+DEBUG:bleak.backends.dotnet.scanner:Received 50:BA:74:7D:C2:3C: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received 50:BA:74:7D:C2:3C: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received E5:9F:B8:36:17:9A: RABBONI.
+DEBUG:bleak.backends.dotnet.scanner:Received E5:9F:B8:36:17:9A: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received 50:BA:74:7D:C2:3C: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received 50:BA:74:7D:C2:3C: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received E5:9F:B8:36:17:9A: RABBONI.
+DEBUG:bleak.backends.dotnet.scanner:Received E5:9F:B8:36:17:9A: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received C8:FF:77:97:07:56: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received C8:FF:77:97:07:56: A1M-TW-NEA0449A.
+DEBUG:bleak.backends.dotnet.scanner:Received E5:9F:B8:36:17:9A: RABBONI.
+DEBUG:bleak.backends.dotnet.scanner:Received E5:9F:B8:36:17:9A: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received C8:FF:77:97:07:56: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received C8:FF:77:97:07:56: A1M-TW-NEA0449A.
+DEBUG:bleak.backends.dotnet.scanner:Received E5:9F:B8:36:17:9A: RABBONI.
+DEBUG:bleak.backends.dotnet.scanner:Received E5:9F:B8:36:17:9A: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received 50:BA:74:7D:C2:3C: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received 50:BA:74:7D:C2:3C: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received C8:FF:77:97:07:56: Unknown.
+DEBUG:bleak.backends.dotnet.scanner:Received C8:FF:77:97:07:56: A1M-TW-NEA0449A.
+DEBUG:bleak.backends.dotnet.scanner:3 devices found. Watcher status: 3.
+BleakClientDotNet (E5:9F:B8:36:17:9A)
+DEBUG:bleak.backends.dotnet.client:Connecting to BLE device @ E5:9F:B8:36:17:9A
+DEBUG:bleak.backends.dotnet.client:_ConnectionStatusChanged_Handler: 1
+DEBUG:bleak.backends.dotnet.client:Get Services...
+INFO:bleak.backends.dotnet.client:Services resolved for BleakClientDotNet (E5:9F:B8:36:17:9A)
+DEBUG:bleak.backends.dotnet.client:Read Characteristic 00002a19-0000-1000-8000-00805f9b34fb : bytearray(b'd')
+battery_level: bytearray(b'd')
+[Service] 00001800-0000-1000-8000-00805f9b34fb: Generic Access Profile
+DEBUG:bleak.backends.dotnet.client:Read Characteristic 00002a00-0000-1000-8000-00805f9b34fb : bytearray(b'RABBONI')
+        [Characteristic] 00002a00-0000-1000-8000-00805f9b34fb: (Handle: 2) (read,write) | Name: Device Name, Value: b'RABBONI' 
+DEBUG:bleak.backends.dotnet.client:Read Characteristic 00002a01-0000-1000-8000-00805f9b34fb : bytearray(b'\x00\x00')
+        [Characteristic] 00002a01-0000-1000-8000-00805f9b34fb: (Handle: 4) (read) | Name: Appearance, Value: b'\x00\x00' 
+DEBUG:bleak.backends.dotnet.client:Read Characteristic 00002a04-0000-1000-8000-00805f9b34fb : bytearray(b'\x08\x00\x0c\x00\x00\x00\x90\x01')
+        [Characteristic] 00002a04-0000-1000-8000-00805f9b34fb: (Handle: 6) (read) | Name: Peripheral Preferred Connection Parameters, Value: b'\x08\x00\x0c\x00\x00\x00\x90\x01'
+DEBUG:bleak.backends.dotnet.client:Read Characteristic 00002aa6-0000-1000-8000-00805f9b34fb : bytearray(b'\x01')
+        [Characteristic] 00002aa6-0000-1000-8000-00805f9b34fb: (Handle: 8) (read) | Name: Central Address Resolution, Value: b'\x01' 
+[Service] 00001801-0000-1000-8000-00805f9b34fb: Generic Attribute Profile
+        [Characteristic] 00002a05-0000-1000-8000-00805f9b34fb: (Handle: 11) (indicate) | Name: Service Changed, Value: None
+DEBUG:bleak.backends.dotnet.client:Read Descriptor 13 : bytearray(b'\x02\x00')
+                [Descriptor] 00002902-0000-1000-8000-00805f9b34fb: (Handle: 13) | Value: b'\x02\x00' 
+[Service] 00001804-0000-1000-8000-00805f9b34fb: Tx Power
+DEBUG:bleak.backends.dotnet.client:Read Characteristic 00002a07-0000-1000-8000-00805f9b34fb : bytearray(b'\x00')
+        [Characteristic] 00002a07-0000-1000-8000-00805f9b34fb: (Handle: 15) (read,write) | Name: Tx Power Level, Value: b'\x00' 
+[Service] 0000180f-0000-1000-8000-00805f9b34fb: Battery Service
+DEBUG:bleak.backends.dotnet.client:Read Characteristic 00002a19-0000-1000-8000-00805f9b34fb : bytearray(b'd')
+        [Characteristic] 00002a19-0000-1000-8000-00805f9b34fb: (Handle: 18) (read) | Name: Battery Level, Value: b'd' 
+[Service] 00001600-0000-1000-8000-00805f9b34fb: Vendor specific
+        [Characteristic] 00001601-0000-1000-8000-00805f9b34fb: (Handle: 21) (notify) | Name: Vendor specific, Value: None
+                [Descriptor] 00002902-0000-1000-8000-00805f9b34fb: (Handle: 23) | Error - Could not read Descriptor value for 00002902-0000-1000-8000-00805f9b34fb: Unreachable
+        [Characteristic] 00001602-0000-1000-8000-00805f9b34fb: (Handle: 24) (notify) | Name: Vendor specific, Value: None
+                [Descriptor] 00002902-0000-1000-8000-00805f9b34fb: (Handle: 26) | Error - System.InvalidOperationException: 在未預期的時間呼叫了方法。 (發生例外狀況於 
+HRESULT: 0x8000000E)
+        [Characteristic] 00001607-0000-1000-8000-00805f9b34fb: (Handle: 27) (notify) | Name: Vendor specific, Value: None 
+                [Descriptor] 00002902-0000-1000-8000-00805f9b34fb: (Handle: 29) | Error - System.InvalidOperationException: 在未預期的時間呼叫了方法。 (發生例外狀況於 
+HRESULT: 0x8000000E)
+        [Characteristic] 0000160c-0000-1000-8000-00805f9b34fb: (Handle: 30) (read) | Name: Vendor specific, Value: b'System.InvalidOperationException: \xe5\x9c\xa8\xe6\x9c\xaa\xe9\xa0\x90\xe6\x9c\x9f\xe7\x9a\x84\xe6\x99\x82\xe9\x96\x93\xe5\x91\xbc\xe5\x8f\xab\xe4\xba\x86\xe6\x96\xb9\xe6\xb3\x95\xe3\x80\x82 (\xe7\x99\xbc\xe7\x94\x9f\xe4\xbe\x8b\xe5\xa4\x96\xe7\x8b\x80\xe6\xb3\x81\xe6\x96\xbc HRESULT: 0x8000000E)'
+[Service] 00001700-0000-1000-8000-00805f9b34fb: Vendor specific
+        [Characteristic] 00001701-0000-1000-8000-00805f9b34fb: (Handle: 33) (read,write) | Name: Vendor specific, Value: b'System.InvalidOperationException: \xe5\x9c\xa8\xe6\x9c\xaa\xe9\xa0\x90\xe6\x9c\x9f\xe7\x9a\x84\xe6\x99\x82\xe9\x96\x93\xe5\x91\xbc\xe5\x8f\xab\xe4\xba\x86\xe6\x96\xb9\xe6\xb3\x95\xe3\x80\x82 (\xe7\x99\xbc\xe7\x94\x9f\xe4\xbe\x8b\xe5\xa4\x96\xe7\x8b\x80\xe6\xb3\x81\xe6\x96\xbc HRESULT: 0x8000000E)'
+        [Characteristic] 00001702-0000-1000-8000-00805f9b34fb: (Handle: 35) (read,write) | Name: Vendor specific, Value: b'System.InvalidOperationException: \xe5\x9c\xa8\xe6\x9c\xaa\xe9\xa0\x90\xe6\x9c\x9f\xe7\x9a\x84\xe6\x99\x82\xe9\x96\x93\xe5\x91\xbc\xe5\x8f\xab\xe4\xba\x86\xe6\x96\xb9\xe6\xb3\x95\xe3\x80\x82 (\xe7\x99\xbc\xe7\x94\x9f\xe4\xbe\x8b\xe5\xa4\x96\xe7\x8b\x80\xe6\xb3\x81\xe6\x96\xbc HRESULT: 0x8000000E)'
+        [Characteristic] 00001703-0000-1000-8000-00805f9b34fb: (Handle: 37) (read) | Name: Vendor specific, Value: b'System.InvalidOperationException: \xe5\x9c\xa8\xe6\x9c\xaa\xe9\xa0\x90\xe6\x9c\x9f\xe7\x9a\x84\xe6\x99\x82\xe9\x96\x93\xe5\x91\xbc\xe5\x8f\xab\xe4\xba\x86\xe6\x96\xb9\xe6\xb3\x95\xe3\x80\x82 (\xe7\x99\xbc\xe7\x94\x9f\xe4\xbe\x8b\xe5\xa4\x96\xe7\x8b\x80\xe6\xb3\x81\xe6\x96\xbc HRESULT: 0x8000000E)'
+        [Characteristic] 00001704-0000-1000-8000-00805f9b34fb: (Handle: 39) (read,write) | Name: Vendor specific, Value: b'System.InvalidOperationException: \xe5\x9c\xa8\xe6\x9c\xaa\xe9\xa0\x90\xe6\x9c\x9f\xe7\x9a\x84\xe6\x99\x82\xe9\x96\x93\xe5\x91\xbc\xe5\x8f\xab\xe4\xba\x86\xe6\x96\xb9\xe6\xb3\x95\xe3\x80\x82 (\xe7\x99\xbc\xe7\x94\x9f\xe4\xbe\x8b\xe5\xa4\x96\xe7\x8b\x80\xe6\xb3\x81\xe6\x96\xbc HRESULT: 0x8000000E)'
+        [Characteristic] 00001705-0000-1000-8000-00805f9b34fb: (Handle: 41) (read,write) | Name: Vendor specific, Value: b'System.InvalidOperationException: \xe5\x9c\xa8\xe6\x9c\xaa\xe9\xa0\x90\xe6\x9c\x9f\xe7\x9a\x84\xe6\x99\x82\xe9\x96\x93\xe5\x91\xbc\xe5\x8f\xab\xe4\xba\x86\xe6\x96\xb9\xe6\xb3\x95\xe3\x80\x82 (\xe7\x99\xbc\xe7\x94\x9f\xe4\xbe\x8b\xe5\xa4\x96\xe7\x8b\x80\xe6\xb3\x81\xe6\x96\xbc HRESULT: 0x8000000E)'
+[Service] 0000fff0-0000-1000-8000-00805f9b34fb: Vendor specific
+        [Characteristic] 0000fff6-0000-1000-8000-00805f9b34fb: (Handle: 44) (write) | Name: Vendor specific, Value: None
+        [Characteristic] 0000fff7-0000-1000-8000-00805f9b34fb: (Handle: 46) (notify) | Name: Vendor specific, Value: None
+                [Descriptor] 00002902-0000-1000-8000-00805f9b34fb: (Handle: 48) | Error - System.ObjectDisposedException: 該物件已關閉。 (發生例外狀況於 HRESULT: 0x80000013)

@@ -1,0 +1,83 @@
+{
+    // 使用 IntelliSense 以得知可用的屬性。
+    // 暫留以檢視現有屬性的描述。
+    // 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "quick_blue",
+            "cwd": "quick_blue",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "quick_blue (profile mode)",
+            "cwd": "quick_blue",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "quick_blue_example (debug mode)",
+            "cwd": "quick_blue_example",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--no-sound-null-safety",
+                // "MY_VAR=foo"
+            ],
+            "flutterMode": "debug"
+        },
+        {
+            "name": "quick_blue_example (profile mode)",
+            "cwd": "quick_blue_example",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--no-sound-null-safety"
+            ],
+            "flutterMode": "profile"
+        },
+        {
+            "name": "quick_blue_macos",
+            "cwd": "quick_blue_macos",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "quick_blue_macos (profile mode)",
+            "cwd": "quick_blue_macos",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "quick_blue_platform_interface",
+            "cwd": "quick_blue_platform_interface",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "quick_blue_platform_interface (profile mode)",
+            "cwd": "quick_blue_platform_interface",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "quick_blue_windows",
+            "cwd": "quick_blue_windows",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "quick_blue_windows (profile mode)",
+            "cwd": "quick_blue_windows",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        }
+    ]
+}
