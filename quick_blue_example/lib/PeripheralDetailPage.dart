@@ -35,9 +35,9 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
   @override
   void dispose() {
     super.dispose();
-    QuickBlue.setValueHandler(null);
-    QuickBlue.setServiceHandler(null);
-    QuickBlue.setConnectionHandler(null);
+    QuickBlue.setValueHandler((_, __, ___) {});
+    QuickBlue.setServiceHandler((_, __) {});
+    QuickBlue.setConnectionHandler((_, __) {});
   }
 
   void _handleConnectionChange(String deviceId, BlueConnectionState state) {
@@ -69,13 +69,13 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: Text('connect'),
                 onPressed: () {
                   QuickBlue.connect(widget.deviceId);
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('disconnect'),
                 onPressed: () {
                   QuickBlue.disconnect(widget.deviceId);
@@ -86,7 +86,7 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: Text('discoverServices'),
                 onPressed: () {
                   QuickBlue.discoverServices(widget.deviceId);
@@ -94,12 +94,13 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
               ),
             ],
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text('setNotifiable'),
             onPressed: () {
               QuickBlue.setNotifiable(
-                  widget.deviceId, WOODEMI_SERV__COMMAND, WOODEMI_CHAR__COMMAND_RESPONSE,
-                  BleInputProperty.indication);
+                  // widget.deviceId, '00001700-0000-1000-8000-00805f9b34fb', '00001705-0000-1000-8000-00805f9b34fb',
+                  widget.deviceId, '00001600-0000-1000-8000-00805f9b34fb', '00001601-0000-1000-8000-00805f9b34fb',
+                  BleInputProperty.notification);
             },
           ),
           TextField(
@@ -120,7 +121,7 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
               labelText: 'Binary code',
             ),
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text('send'),
             onPressed: () {
               var value = Uint8List.fromList(hex.decode(binaryCode.text));
@@ -129,7 +130,7 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
                   value, BleOutputProperty.withResponse);
             },
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text('requestMtu'),
             onPressed: () async {
               var mtu = await QuickBlue.requestMtu(widget.deviceId, WOODEMI_MTU_WUART);

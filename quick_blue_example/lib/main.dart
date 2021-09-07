@@ -15,7 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  StreamSubscription<BlueScanResult> _subscription;
+  late StreamSubscription<BlueScanResult> _subscription;
 
   @override
   void initState() {
@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void dispose() {
     super.dispose();
-    _subscription?.cancel();
+    _subscription.cancel();
   }
 
   @override
@@ -42,13 +42,13 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            FutureBuilder(
-              future: QuickBlue.isBluetoothAvailable(),
-              builder: (context, snapshot) {
-                var available = snapshot.data?.toString() ?? '...';
-                return Text('Bluetooth init: $available');
-              },
-            ),
+            // FutureBuilder(
+            //   future: QuickBlue.isBluetoothAvailable(),
+            //   builder: (context, snapshot) {
+            //     var available = snapshot.data?.toString() ?? '...';
+            //     return Text('Bluetooth init: $available');
+            //   },
+            // ),
             _buildButtons(),
             Divider(
               color: Colors.blue,
@@ -64,13 +64,13 @@ class _MyAppState extends State<MyApp> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        RaisedButton(
+        ElevatedButton(
           child: Text('startScan'),
           onPressed: () {
             QuickBlue.startScan();
           },
         ),
-        RaisedButton(
+        ElevatedButton(
           child: Text('stopScan'),
           onPressed: () {
             QuickBlue.stopScan();
@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  var _scanResults = List<BlueScanResult>();
+  var _scanResults = <BlueScanResult>[];
 
   Widget _buildListView() {
     return Expanded(
@@ -88,7 +88,7 @@ class _MyAppState extends State<MyApp> {
         itemBuilder: (context, index) => ListTile(
           title:
               Text('${_scanResults[index].name}(${_scanResults[index].rssi})'),
-          subtitle: Text(_scanResults[index].deviceId),
+          subtitle: Text("${_scanResults[index].deviceId} (${_scanResults[index].macAddress})"),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => PeripheralDetailPage(_scanResults[index].deviceId),

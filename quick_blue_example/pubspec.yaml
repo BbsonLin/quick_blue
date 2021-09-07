@@ -6,11 +6,16 @@ description: Demonstrates how to use the quick_blue plugin.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.0
+  convert: ^2.1.1
 
   quick_blue:
     # When depending on this package from a real application you should use:
@@ -20,11 +25,6 @@ dependencies:
     # the parent directory to use the current plugin's version.
     path: ../quick_blue
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.0
-  convert: ^2.1.1
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -32,6 +32,10 @@ dev_dependencies:
 dependency_overrides:
   quick_blue_platform_interface:
     path: ../quick_blue_platform_interface
+  quick_blue_macos:
+    path: ../quick_blue_macos
+  quick_blue_windows:
+    path: ../quick_blue_windows
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
