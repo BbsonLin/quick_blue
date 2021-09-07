@@ -4,5 +4,6 @@
         "xlocinfo": "cpp",
         "xstring": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.clang_format_fallbackStyle": "Visual Studio"
 }
