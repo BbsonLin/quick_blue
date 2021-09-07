@@ -116,16 +116,17 @@ struct BluetoothDeviceAgent {
   }
 };
 
-class QuickBlueWindowsPlugin : public flutter::Plugin, public flutter::StreamHandler<EncodableValue> {
-  public:
-    static void RegisterWithRegistrar(flutter::PluginRegistrarWindows *registrar);
+class QuickBlueWindowsPlugin : public flutter::Plugin, public flutter::StreamHandler<EncodableValue>
+{
+public:
+  static void RegisterWithRegistrar(flutter::PluginRegistrarWindows *registrar);
 
-    QuickBlueWindowsPlugin();
+  QuickBlueWindowsPlugin();
 
-    virtual ~QuickBlueWindowsPlugin();
+  virtual ~QuickBlueWindowsPlugin();
 
-  private:
-    winrt::fire_and_forget InitializeAsync();
+private:
+  winrt::fire_and_forget InitializeAsync();
 
   // Called when a method is called on this plugin's channel from Dart.
   void HandleMethodCall(
@@ -157,7 +158,7 @@ class QuickBlueWindowsPlugin : public flutter::Plugin, public flutter::StreamHan
   winrt::fire_and_forget SetNotifiableAsync(BluetoothDeviceAgent& bluetoothDeviceAgent, std::string service, std::string characteristic, std::string bleInputProperty);
   winrt::fire_and_forget DiscoverServicesAsync(BluetoothDeviceAgent& bluetoothDeviceAgent);
   winrt::fire_and_forget RequestMtuAsync(BluetoothDeviceAgent& bluetoothDeviceAgent, uint64_t expectedMtu);
-  winrt::fire_and_forget ReadValueAsync(BluetoothDeviceAgent& bluetoothDeviceAgent, std::string service, std::string characteristic);
+  winrt::fire_and_forget ReadGattChar(BluetoothDeviceAgent& bluetoothDeviceAgent, std::string service, std::string characteristic);
   winrt::fire_and_forget WriteValueAsync(BluetoothDeviceAgent& bluetoothDeviceAgent, std::string service, std::string characteristic, std::vector<uint8_t> value, std::string bleOutputProperty);
   void QuickBlueWindowsPlugin::GattCharacteristic_ValueChanged(GattCharacteristic sender, GattValueChangedEventArgs args);
 };
@@ -296,7 +297,7 @@ void QuickBlueWindowsPlugin::HandleMethodCall(
       return;
     }
 
-    ReadValueAsync(*it->second, service, characteristic);
+    ReadGattChar(*it->second, service, characteristic);
     result->Success(nullptr);
   } else if (method_name.compare("writeValue") == 0) {
     auto args = std::get<EncodableMap>(*method_call.arguments());
@@ -483,10 +484,10 @@ winrt::fire_and_forget QuickBlueWindowsPlugin::DiscoverServicesAsync(BluetoothDe
   }
 }
 
-winrt::fire_and_forget QuickBlueWindowsPlugin::ReadValueAsync(BluetoothDeviceAgent& bluetoothDeviceAgent, std::string service, std::string characteristic, std::string bleOutputProperty) {
+winrt::fire_and_forget QuickBlueWindowsPlugin::ReadGattChar(BluetoothDeviceAgent& bluetoothDeviceAgent, std::string service, std::string characteristic) {
   auto gattCharacteristic = co_await bluetoothDeviceAgent.GetCharacteristicAsync(service, characteristic);
-  auto readValueResult = co_await gattCharacteristic.ReadValueAsync();
-  OutputDebugString((L"ReadValueAsync " + winrt::to_hstring(characteristic) + winrt::to_hstring((int32_t)readValueResult) + L"\n").c_str());
+  auto readResult = co_await gattCharacteristic.ReadValueAsync();
+  OutputDebugString((L"ReadGattChar " + winrt::to_hstring(characteristic) + winrt::to_hstring((int32_t)readResult.Status()) + L"\n").c_str());
 }
 
 winrt::fire_and_forget QuickBlueWindowsPlugin::WriteValueAsync(BluetoothDeviceAgent& bluetoothDeviceAgent, std::string service, std::string characteristic, std::vector<uint8_t> value, std::string bleOutputProperty) {
