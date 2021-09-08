@@ -49,7 +49,7 @@ packages:
       name: convert
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "3.0.1"
   fake_async:
     dependency: transitive
     description:
@@ -100,7 +100,7 @@ packages:
     description:
       path: quick_blue_macos
       ref: HEAD
-      resolved-ref: b1583c109555517373aec364dc6121c537f6f74d
+      resolved-ref: "3148c399b8143a4fabd081627054df4b6c18e24c"
       url: "https://github.com/BbsonLin/quick_blue.git"
     source: git
     version: "0.2.0"
@@ -109,7 +109,7 @@ packages:
     description:
       path: quick_blue_platform_interface
       ref: HEAD
-      resolved-ref: de754bedf8ab48c1225b8473530d812b3470f0ca
+      resolved-ref: "3148c399b8143a4fabd081627054df4b6c18e24c"
       url: "https://github.com/BbsonLin/quick_blue.git"
     source: git
     version: "0.2.0"
@@ -118,7 +118,7 @@ packages:
     description:
       path: quick_blue_windows
       ref: HEAD
-      resolved-ref: b1583c109555517373aec364dc6121c537f6f74d
+      resolved-ref: "3148c399b8143a4fabd081627054df4b6c18e24c"
       url: "https://github.com/BbsonLin/quick_blue.git"
     source: git
     version: "0.2.0"
