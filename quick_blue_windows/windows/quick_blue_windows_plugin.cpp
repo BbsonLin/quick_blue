@@ -221,7 +221,7 @@ namespace
 
   QuickBlueWindowsPlugin::QuickBlueWindowsPlugin()
   {
-    InitializeAsync();
+    // InitializeAsync();
   }
 
   QuickBlueWindowsPlugin::~QuickBlueWindowsPlugin() {}
@@ -561,6 +561,7 @@ namespace
     auto gattCharacteristic = co_await bluetoothDeviceAgent.GetCharacteristicAsync(service, characteristic);
     auto writeValueStatus = co_await gattCharacteristic.WriteValueAsync(from_bytevc(value), GattWriteOption::WriteWithResponse);
     OutputDebugString((L"WriteValueAsync " + winrt::to_hstring(characteristic) + L", " + winrt::to_hstring(to_hexstring(value)) + L", " + winrt::to_hstring((int32_t)writeValueStatus) + L"\n").c_str());
+    std::wcout << (L"WriteValueAsync " + winrt::to_hstring(characteristic) + L", " + winrt::to_hstring(to_hexstring(value)) + L", " + winrt::to_hstring((int32_t)writeValueStatus) + L"\n").c_str() << std::endl;
   }
 
   void QuickBlueWindowsPlugin::GattCharacteristic_ValueChanged(GattCharacteristic sender, GattValueChangedEventArgs args)
